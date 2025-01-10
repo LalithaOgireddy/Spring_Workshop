@@ -19,7 +19,14 @@ public class ScannerInputService implements UserInputService {
     }
     @Override
     public int getInt() {
-        System.out.print("Enter an integer: ");
-        return scanner.nextInt();
+        while(true){
+            System.out.print("Enter an integer: ");
+            try {
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter valid integer.");
+            }
+        }
+
     }
 }
